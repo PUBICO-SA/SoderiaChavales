@@ -1,0 +1,91 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin123",
+      "rol": "admin"
+    },
+    {
+      "id": "2",
+      "username": "cliente1",
+      "password": "cliente123",
+      "rol": "cliente"
+    },
+    {
+      "id": "9bb8",
+      "username": "jorge",
+      "password": "123",
+      "rol": "admin"
+    }
+  ],
+  "clientes": [
+    {
+      "id": "1",
+      "nombre": "Juan Pérez",
+      "telefono": "123456789",
+      "direccion": "Calle Falsa 123"
+    },
+    {
+      "id": "2",
+      "nombre": "Laura Gómez",
+      "telefono": "987654321",
+      "direccion": "Av. Siempre Viva 742"
+    }
+  ],
+  "productos": [
+    {
+      "id": "1",
+      "nombre": "Soda 1L",
+      "descripcion": "Botella retornable",
+      "precio": 150,
+      "stock": 80
+    },
+    {
+      "id": "2",
+      "nombre": "Soda 2L",
+      "descripcion": "Botella descartable",
+      "precio": 250,
+      "stock": 60
+    },
+    {
+      "id": "3",
+      "nombre": "Gaseosa Cola 1.5L",
+      "descripcion": "Gaseosa sabor cola",
+      "precio": "330",
+      "stock": 40
+    }
+  ],
+  "ventas": [
+    {
+      "id": "1",
+      "cliente": "Juan Pérez",
+      "fecha": "2025-05-26T14:00:00",
+      "total": 300,
+      "detalle": "2 x Soda 1L ($150)"
+    },
+    {
+      "id": "2",
+      "cliente": "Laura Gómez",
+      "fecha": "2025-05-27T10:30:00",
+      "total": 500,
+      "detalle": "2 x Soda 2L ($250)"
+    }
+  ],
+  "pedidos": [
+    {
+      "id": "1",
+      "cliente": "Juan Pérez",
+      "fecha": "2025-05-26T12:00:00",
+      "estado": "pendiente",
+      "detalle": "1 x Soda 2L, 2 x Gaseosa Cola"
+    },
+    {
+      "id": "2",
+      "cliente": "Laura Gómez",
+      "fecha": "2025-05-27T09:45:00",
+      "estado": "entregado",
+      "detalle": "3 x Soda 1L"
+    }
+  ]
+}

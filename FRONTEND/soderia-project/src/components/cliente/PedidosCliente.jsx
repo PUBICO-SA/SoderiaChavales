@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useAuthStore } from '../../stores/authStore'
 import { ENDPOINT_PEDIDOS } from '../../routes/routes'
+import '../../styles/PedidosCliente.css' // Tu archivo CSS con los estilos que te di
 
 const PedidosClientes = () => {
   const user = useAuthStore(state => state.user)
@@ -21,14 +22,14 @@ const PedidosClientes = () => {
       .finally(() => setLoading(false))
   }, [user])
 
-  if (loading) return <p>Cargando pedidos...</p>
-  if (!pedidos.length) return <p>No tenés pedidos.</p>
+  if (loading) return <p className="mensaje-cargando">Cargando pedidos...</p>
+  if (!pedidos.length) return <p className="mensaje-cargando">No tenés pedidos.</p>
 
   return (
-    <div>
-      <h2>Mis Pedidos</h2>
+    <div className="pedidos-container">
+      <h2 className="pedidos-titulo">Mis Pedidos</h2>
 
-      <table border="1" cellPadding="8" cellSpacing="0" style={{ marginTop: '20px', width: '100%' }}>
+      <table className="pedidos-tabla">
         <thead>
           <tr>
             <th>Fecha</th>
@@ -39,9 +40,9 @@ const PedidosClientes = () => {
         <tbody>
           {pedidos.map(pedido => (
             <tr key={pedido.id}>
-              <td>{new Date(pedido.fecha).toLocaleString()}</td>
-              <td>{pedido.estado}</td>
-              <td>{pedido.detalle}</td>
+              <td data-label="Fecha">{new Date(pedido.fecha).toLocaleString()}</td>
+              <td data-label="Estado">{pedido.estado}</td>
+              <td data-label="Detalle">{pedido.detalle}</td>
             </tr>
           ))}
         </tbody>

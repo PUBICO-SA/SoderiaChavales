@@ -13,7 +13,7 @@ const AdminProductos = () => {
     updateItem: modificarProducto,
     cancelEdit: resetFormulario,
     editMode: modoEditar
-  } = useCrud(ENDPOINT_PRODUCTOS, { nombre: '', precio: '', stock: '' });
+  } = useCrud(ENDPOINT_PRODUCTOS, { nombre: '', descripcion: '', precio: '', stock: '' });
 
   return (
     <div className="productos-container">
@@ -25,6 +25,12 @@ const AdminProductos = () => {
           placeholder="Nombre"
           value={productoActual.nombre}
           onChange={e => setProductoActual({ ...productoActual, nombre: e.target.value })}
+        />
+        <input
+          className="productos-input"
+          placeholder="Descripción"
+          value={productoActual.descripcion}
+          onChange={e => setProductoActual({ ...productoActual, descripcion: e.target.value })}
         />
         <input
           className="productos-input"
@@ -57,6 +63,7 @@ const AdminProductos = () => {
         <thead>
           <tr>
             <th>Nombre</th>
+            <th>Descripción</th>
             <th>Precio</th>
             <th>Stock</th>
             <th>Acciones</th>
@@ -64,8 +71,12 @@ const AdminProductos = () => {
         </thead>
         <tbody>
           {productos.map(p => (
-            <tr key={p.id}>
+            <tr
+              key={p.id}
+              className="productos-fila"
+            >
               <td>{p.nombre}</td>
+              <td>{p.descripcion}</td>
               <td>${p.precio}</td>
               <td>{p.stock}</td>
               <td>

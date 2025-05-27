@@ -1,0 +1,109 @@
+.productos-container {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  color: white;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  box-sizing: border-box;
+}
+
+.productos-titulo {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+.productos-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1e1e2f; /* Fondo oscuro general */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  color: #d7e8df;
+}
+
+.productos-tabla thead th {
+  background-color: #2980b9;
+  color: white;
+  padding: 12px 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.productos-tabla td {
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  color: #d7e8df;
+  border-top: 1px solid #444;
+}
+
+.productos-tabla tbody tr {
+  background-color: #2a2a40;
+  transition: background-color 0.2s ease;
+}
+
+.productos-tabla tbody tr:hover {
+  background-color: #2ecc71; /* Hover verde */
+  color: white;
+}
+
+.mensaje-cargando {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 40px;
+  color: white;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+  .productos-tabla thead {
+    display: none;
+  }
+
+  .productos-tabla,
+  .productos-tabla tbody,
+  .productos-tabla tr,
+  .productos-tabla td {
+    display: block;
+    width: 100%;
+  }
+
+  .productos-tabla tr {
+    margin-bottom: 20px;
+    background-color: #2a2a40;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .productos-tabla td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+    border: none;
+    border-bottom: 1px solid #444;
+    font-size: 1rem;
+    color: #d7e8df;
+  }
+
+  .productos-tabla td:last-child {
+    border-bottom: 0;
+  }
+
+  .productos-tabla td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 16px;
+    width: 45%;
+    padding-left: 10px;
+    font-weight: 700;
+    text-align: left;
+    color: #2980b9;
+  }
+}

@@ -1,46 +1,115 @@
 .ventas-container {
-    background-color: rgba(40, 40, 40, 0.95);
-    padding: 30px;
-    border-radius: 14px;
-    max-width: 1000px;
-    margin: 0 auto;
-    color: white;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-  }
-  
-  .ventas-titulo {
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .ventas-tabla {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #fff;
-    color: #333;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
+  background-color: #1e1e2f;
+  padding: 40px 20px;
+  border-radius: 16px;
+  max-width: 1100px;
+  margin: 30px auto;
+  color: #f0f0f5;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ventas-titulo {
+  font-size: 2.8rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #6ee7b7; /* un verde suave */
+  text-shadow: 0 2px 8px rgba(110, 231, 183, 0.8);
+}
+
+.ventas-tabla {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+  background: transparent;
+  box-shadow: 0 0 15px rgba(110, 231, 183, 0.2);
+}
+
+.ventas-tabla thead tr {
+  background-color: #3a3a5a;
+  border-radius: 12px;
+}
+
+.ventas-tabla th {
+  padding: 16px 20px;
+  color: #a1f0c0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+  user-select: none;
+}
+
+.ventas-tabla tbody tr {
+  background-color: #2a2a40;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ventas-tabla tbody tr:hover {
+  background-color: #35c77a;
+  color: #1e1e2f;
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(53, 199, 122, 0.7);
+}
+
+.ventas-tabla tbody td {
+  padding: 16px 20px;
+  text-align: center;
+  font-weight: 600;
+  border: none;
+  color: #d7e8df;
+  vertical-align: middle;
+}
+
+/* Responsive: estilo tipo tarjetas */
+
+@media (max-width: 768px) {
+  .ventas-tabla,
+  .ventas-tabla thead,
+  .ventas-tabla tbody,
   .ventas-tabla th,
-  .ventas-tabla td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    text-align: center;
+  .ventas-tabla td,
+  .ventas-tabla tr {
+    display: block;
   }
-  
-  .ventas-tabla th {
-    background-color: #4CAF50;
-    color: white;
+
+  .ventas-tabla thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
   }
-  
-  .ventas-tabla tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
+
+  .ventas-tabla tbody tr {
+    margin-bottom: 18px;
+    border-radius: 14px;
+    background-color: #2a2a40;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+    padding: 20px 15px;
   }
-  
-  .ventas-tabla tbody tr:hover {
-    background-color: #e0f7fa;
+
+  .ventas-tabla tbody td {
+    padding: 12px 10px;
+    text-align: left;
+    position: relative;
+    padding-left: 50%;
+    font-size: 0.95rem;
+    color: #c8f7d8;
+    font-weight: 700;
   }
-  
+
+  .ventas-tabla tbody td::before {
+    position: absolute;
+    top: 50%;
+    left: 18px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    transform: translateY(-50%);
+    font-weight: 900;
+    color: #6ee7b7;
+    content: attr(data-label);
+  }
+}

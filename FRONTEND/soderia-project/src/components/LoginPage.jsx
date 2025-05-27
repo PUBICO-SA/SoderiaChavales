@@ -18,16 +18,13 @@ const LoginPage = () => {
 
     try {
       const { data } = await axios.get(ENDPOINT_USERS, {
-        params: {
-          username,
-          password,
-        },
+        params: { username, password },
       });
 
       if (data.length === 1) {
         const user = data[0];
 
-        if (user.rol === "cliente") {   
+        if (user.rol === "cliente") {
           const { data: clientes } = await axios.get(ENDPOINT_CLIENTES);
           const clienteEncontrado = clientes.find((c) => c.id === user.id);
 
@@ -62,6 +59,7 @@ const LoginPage = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
+          autoComplete="username"
         />
         <input
           type="password"
@@ -69,6 +67,7 @@ const LoginPage = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          autoComplete="current-password"
         />
         <button type="submit">Entrar</button>
       </form>

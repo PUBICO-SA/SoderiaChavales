@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { ENDPOINT_PRODUCTOS } from '../../routes/routes'
+import '../../styles/ProductoCliente.css' // El CSS que te pasé arriba
 
 const ProductosClientes = () => {
   const [productos, setProductos] = useState([])
@@ -13,13 +14,13 @@ const ProductosClientes = () => {
       .finally(() => setLoading(false))
   }, [])
 
-  if (loading) return <p>Cargando productos...</p>
+  if (loading) return <p className="mensaje-cargando">Cargando productos...</p>
 
   return (
-    <div style={{ padding: '1rem' }}>
-      <h2>Productos disponibles</h2>
+    <div className="productos-container">
+      <h2 className="productos-titulo">Productos disponibles</h2>
 
-      <table border="1" cellPadding="8" cellSpacing="0" style={{ width: '100%', marginTop: '20px' }}>
+      <table className="productos-tabla">
         <thead>
           <tr>
             <th>Nombre</th>
@@ -31,10 +32,10 @@ const ProductosClientes = () => {
         <tbody>
           {productos.map(prod => (
             <tr key={prod.id}>
-              <td>{prod.nombre}</td>
-              <td><em>{prod.descripcion}</em></td>
-              <td>${prod.precio}</td>
-              <td>{prod.stock}</td>
+              <td data-label="Nombre">{prod.nombre}</td>
+              <td data-label="Descripción"><em>{prod.descripcion}</em></td>
+              <td data-label="Precio">${prod.precio}</td>
+              <td data-label="Stock">{prod.stock}</td>
             </tr>
           ))}
         </tbody>

@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-import { ENDPOINT_VENTAS } from '../../routes/routes'
-import './adminstyles/AdminVentas.css'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { ENDPOINT_VENTAS } from '../../routes/routes';
+import './adminstyles/AdminVentas.css';
 
 const AdminVentas = () => {
-  const [ventas, setVentas] = useState([])
+  const [ventas, setVentas] = useState([]);
 
   useEffect(() => {
     axios.get(ENDPOINT_VENTAS)
       .then(res => setVentas(res.data))
-      .catch(err => console.error('Error al obtener ventas:', err))
-  }, [])
+      .catch(err => console.error('Error al obtener ventas:', err));
+  }, []);
 
   return (
     <div className="ventas-container">
@@ -28,16 +28,16 @@ const AdminVentas = () => {
         <tbody>
           {ventas.map(v => (
             <tr key={v.id}>
-              <td>{v.cliente}</td>
-              <td>{new Date(v.fecha).toLocaleString()}</td>
-              <td>${v.total}</td>
-              <td>{v.detalle}</td>
+              <td data-label="Cliente">{v.cliente}</td>
+              <td data-label="Fecha">{new Date(v.fecha).toLocaleString()}</td>
+              <td data-label="Total">${v.total}</td>
+              <td data-label="Detalle">{v.detalle}</td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
-  )
-}
+  );
+};
 
-export default AdminVentas
+export default AdminVentas;

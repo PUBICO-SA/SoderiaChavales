@@ -55,22 +55,33 @@ const AdminUsuarios = () => {
         <button onClick={handleAgregar}>Agregar</button>
       </div>
 
-      <ul>
-        {usuarios.map((u) => (
-          <li key={u.id}>
-            {u.username} ({u.rol})
-            <button
-              onClick={() => {
-                if (window.confirm('¿Seguro que querés borrar este usuario? 😬'))
-                  eliminarUsuario(u.id)
-              }}
-            
-            >
-              Eliminar
-            </button>
-          </li>
-        ))}
-      </ul>
+      <table border="1" cellPadding="8" cellSpacing="0" style={{ marginTop: '20px', width: '100%' }}>
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {usuarios.map((u) => (
+            <tr key={u.id}>
+              <td>{u.username}</td>
+              <td>{u.rol}</td>
+              <td>
+                <button
+                  onClick={() => {
+                    if (window.confirm('¿Seguro que querés borrar este usuario? 😬'))
+                      eliminarUsuario(u.id)
+                  }}
+                >
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   )
 }

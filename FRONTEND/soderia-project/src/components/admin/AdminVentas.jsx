@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import {ENDPOINT_VENTAS} from '../../routes/routes' // Adjust the import path as necessary
+import { ENDPOINT_VENTAS } from '../../routes/routes'
 
 const AdminVentas = () => {
   const [ventas, setVentas] = useState([])
@@ -14,13 +14,27 @@ const AdminVentas = () => {
   return (
     <div>
       <h2>Ventas</h2>
-      <ul>
-        {ventas.map(v => (
-          <li key={v.id}>
-            Cliente: {v.cliente} | Fecha: {new Date(v.fecha).toLocaleString()} | Total: ${v.total} | Detalle: {v.detalle}
-          </li>
-        ))}
-      </ul>
+
+      <table border="1" cellPadding="8" cellSpacing="0" style={{ marginTop: '20px', width: '100%' }}>
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Fecha</th>
+            <th>Total</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          {ventas.map(v => (
+            <tr key={v.id}>
+              <td>{v.cliente}</td>
+              <td>{new Date(v.fecha).toLocaleString()}</td>
+              <td>${v.total}</td>
+              <td>{v.detalle}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   )
 }

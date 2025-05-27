@@ -1,6 +1,5 @@
-// Ejemplo de estructura para AdminClientes.jsx
 import { useEffect, useState } from 'react';
-import {ENDPOINT_CLIENTES} from '../../routes/routes'; // Asegúrate de tener esta constante definida en tus rutas
+import { ENDPOINT_CLIENTES } from '../../routes/routes';
 
 const AdminClientes = () => {
   const [clientes, setClientes] = useState([]);
@@ -27,15 +26,6 @@ const AdminClientes = () => {
     obtenerClientes();
   };
 
-  const editarCliente = async (id, actualizado) => {
-    await fetch(`${ENDPOINT_CLIENTES}/${id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(actualizado),
-    });
-    obtenerClientes();
-  };
-
   useEffect(() => {
     obtenerClientes();
   }, []);
@@ -43,19 +33,46 @@ const AdminClientes = () => {
   return (
     <div>
       <h2>Clientes</h2>
-      <input placeholder="Nombre" value={nuevoCliente.nombre} onChange={e => setNuevoCliente({ ...nuevoCliente, nombre: e.target.value })} />
-      <input placeholder="Teléfono" value={nuevoCliente.telefono} onChange={e => setNuevoCliente({ ...nuevoCliente, telefono: e.target.value })} />
-      <input placeholder="Dirección" value={nuevoCliente.direccion} onChange={e => setNuevoCliente({ ...nuevoCliente, direccion: e.target.value })} />
+
+      <input
+        placeholder="Nombre"
+        value={nuevoCliente.nombre}
+        onChange={e => setNuevoCliente({ ...nuevoCliente, nombre: e.target.value })}
+      />
+      <input
+        placeholder="Teléfono"
+        value={nuevoCliente.telefono}
+        onChange={e => setNuevoCliente({ ...nuevoCliente, telefono: e.target.value })}
+      />
+      <input
+        placeholder="Dirección"
+        value={nuevoCliente.direccion}
+        onChange={e => setNuevoCliente({ ...nuevoCliente, direccion: e.target.value })}
+      />
       <button onClick={agregarCliente}>Agregar</button>
-      <ul>
-        {clientes.map(cli => (
-          <li key={cli.id}>
-            {cli.nombre} - {cli.telefono} - {cli.direccion}
-            <button onClick={() => eliminarCliente(cli.id)}>Eliminar</button>
-           
-          </li>
-        ))}
-      </ul>
+
+      <table border="1" cellPadding="8" cellSpacing="0" style={{ marginTop: '20px', width: '100%' }}>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {clientes.map(cli => (
+            <tr key={cli.id}>
+              <td>{cli.nombre}</td>
+              <td>{cli.telefono}</td>
+              <td>{cli.direccion}</td>
+              <td>
+                <button onClick={() => eliminarCliente(cli.id)}>Eliminar</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

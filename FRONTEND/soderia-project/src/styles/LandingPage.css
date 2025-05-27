@@ -1,0 +1,81 @@
+.landing-container {
+  text-align: center;
+  width: 100%;
+  max-width: 960px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ /* importante para centrar vertical */
+}
+
+.landing-header {
+  margin-bottom: 2rem;
+}
+
+.landing-title {
+  font-size: 75px;
+  font-weight: 800;
+  margin: 0;
+  color: #ffffff;
+}
+
+.landing-subtitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #dddddd;
+  margin-top: 0.5rem;
+}
+
+.landing-box {
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  color: white;
+}
+
+.landing-description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.landing-features {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.landing-features li {
+  font-size: 17px;
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+}
+
+.landing-actions {
+  margin-bottom: 1.5rem;
+}
+
+.landing-login-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.landing-login-button:hover {
+  background-color: #45a049;
+}
+
+.landing-footer {
+  font-size: 0.85rem;
+  color: #cccccc;
+}

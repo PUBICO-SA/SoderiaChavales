@@ -10,7 +10,7 @@ import AdminClientes from './components/admin/AdminClientes'
 import AdminProductos from './components/admin/AdminProductos'
 import AdminUsuarios from './components/admin/AdminUsuarios'
 import AdminVentas from './components/admin/AdminVentas'
-
+import '../src/App.css';// Asegúrate de tener un archivo CSS para estilos globales
 
 
 const App = () => {

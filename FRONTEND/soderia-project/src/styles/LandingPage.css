@@ -23,14 +23,13 @@
 .landing-subtitle {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #dddddd;
+  color: #000000;
   margin-top: 0.5rem;
 }
 
 .landing-box {
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   border-radius: 16px;
   padding: 2rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);

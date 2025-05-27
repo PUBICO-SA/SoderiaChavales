@@ -1,11 +1,10 @@
-|-------------------|----------------------------------------------------|
-| **React**         | Construcción de componentes y vistas SPA           |
-| **React Router DOM** | Navegación entre rutas                          |
-| **Zustand**       | Manejo de estado global (sesión, carrito, rol)     |
-| **Bootstrap**     | Estilado moderno y responsive                      |
-| **JSON Server**   | Simulación de una API REST                        |
-| **Axios**         | Requests HTTP con un custom hook                   |
-| **Vite**          | Entorno de desarrollo rápido y eficiente           |
+ **React**         | Construcción de componentes y vistas SPA           
+ **React Router DOM** | Navegación entre rutas                          
+ **Zustand**       | Manejo de estado global (sesión, carrito, rol)     
+ **Bootstrap**     | Estilado moderno y responsive                      
+ **JSON Server**   | Simulación de una API REST                        
+ **Axios**         | Requests HTTP con un custom hook                   
+ **Vite**          | Entorno de desarrollo rápido y eficiente           
 
 > Además, se usaron los hooks `useState`, `useEffect`, `useParams`, `useNavigate` para manejar estado, efectos, rutas y navegación.
 

@@ -1,5 +1,5 @@
 {
-  "users": [
+  "usuarios": [
     {
       "id": "1",
       "username": "admin",
@@ -13,24 +13,26 @@
       "rol": "cliente"
     },
     {
-      "id": "9bb8",
-      "username": "jorge",
+      "id": "38a3",
+      "username": "Tito",
       "password": "123",
-      "rol": "admin"
+      "rol": "cliente"
     }
   ],
   "clientes": [
     {
       "id": "1",
+      "usuarioId": 1,
       "nombre": "Juan Pérez",
       "telefono": "123456789",
       "direccion": "Calle Falsa 123"
     },
     {
       "id": "2",
-      "nombre": "Laura Gómez",
+      "usuarioId": 2,
+      "nombre": "Thiago Robles",
       "telefono": "987654321",
-      "direccion": "Av. Siempre Viva 742"
+      "direccion": "Pablo XII"
     }
   ],
   "productos": [
@@ -52,40 +54,53 @@
       "id": "3",
       "nombre": "Gaseosa Cola 1.5L",
       "descripcion": "Gaseosa sabor cola",
-      "precio": "330",
+      "precio": 330,
       "stock": 40
-    }
-  ],
-  "ventas": [
-    {
-      "id": "1",
-      "cliente": "Juan Pérez",
-      "fecha": "2025-05-26T14:00:00",
-      "total": 300,
-      "detalle": "2 x Soda 1L ($150)"
-    },
-    {
-      "id": "2",
-      "cliente": "Laura Gómez",
-      "fecha": "2025-05-27T10:30:00",
-      "total": 500,
-      "detalle": "2 x Soda 2L ($250)"
     }
   ],
   "pedidos": [
     {
       "id": "1",
-      "cliente": "Juan Pérez",
+      "clienteId": 1,
       "fecha": "2025-05-26T12:00:00",
-      "estado": "pendiente",
-      "detalle": "1 x Soda 2L, 2 x Gaseosa Cola"
+      "estado": "pendiente"
     },
     {
       "id": "2",
-      "cliente": "Laura Gómez",
+      "clienteId": 2,
       "fecha": "2025-05-27T09:45:00",
-      "estado": "entregado",
-      "detalle": "3 x Soda 1L"
+      "estado": "entregado"
+    }
+  ],
+  "detallePedidos": [
+    {
+      "id": "1",
+      "pedidoId": 1,
+      "productoId": 2,
+      "cantidad": 1,
+      "subtotal": 250
+    },
+    {
+      "id": "2",
+      "pedidoId": 1,
+      "productoId": 3,
+      "cantidad": 2,
+      "subtotal": 660
+    },
+    {
+      "id": "3",
+      "pedidoId": 2,
+      "productoId": 1,
+      "cantidad": 3,
+      "subtotal": 450
+    }
+  ],
+  "ventas": [
+    {
+      "id": "1",
+      "pedidoId": 2,
+      "fecha": "2025-05-27T10:30:00",
+      "total": 450
     }
   ]
 }

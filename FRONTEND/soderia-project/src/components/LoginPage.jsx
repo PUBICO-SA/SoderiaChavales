@@ -26,14 +26,14 @@ const LoginPage = () => {
 
         if (user.rol === "cliente") {
           const { data: clientes } = await axios.get(ENDPOINT_CLIENTES);
-          const clienteEncontrado = clientes.find((c) => c.id === user.id);
-
+          const clienteEncontrado = clientes.find((c) => c.usuarioId === user.id);
+        
           if (clienteEncontrado) {
             login({ ...user, nombre: clienteEncontrado.nombre });
           } else {
             login(user);
           }
-
+        
           navigate("/cliente/ClienteDashboard");
         } else {
           login(user);

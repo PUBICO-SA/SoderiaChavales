@@ -1,29 +1,40 @@
-import React from 'react'
-import useCrud from '../../hooks/useCrud'
-import { ENDPOINT_USERS } from '../../routes/routes'
-import './adminstyles/AdminUsuarios.css'
+import React from "react";
+import useCrud from "../../hooks/useCrud";
+import { ENDPOINT_USERS, ENDPOINT_CLIENTES } from "../../routes/routes";
+import "./adminstyles/AdminUsuarios.css";
+import { useEffect, useState } from 'react'
+import axios from 'axios';
 
 const initialUsuario = {
-  username: '',
-  password: '',
-  rol: 'cliente'
-}
+  username: "",
+  password: "",
+  rol: "cliente",
+};
 
 const AdminUsuarios = () => {
+  const [clientes, setClientes] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(ENDPOINT_CLIENTES)
+      .then((res) => setClientes(res.data))
+      .catch((err) => console.error(err));
+  }, []);
+
   const {
     data: usuarios,
     item: nuevoUsuario,
     setItem: setNuevoUsuario,
     addItem: agregarUsuario,
     deleteItem: eliminarUsuario,
-  } = useCrud(ENDPOINT_USERS, initialUsuario)
+  } = useCrud(ENDPOINT_USERS, initialUsuario);
 
   const handleAgregar = () => {
     if (!nuevoUsuario.username || !nuevoUsuario.password) {
-      return alert('Faltan datos pa')
+      return alert("Faltan datos pa");
     }
-    agregarUsuario()
-  }
+    agregarUsuario();
+  };
 
   return (
     <div className="usuarios-container">
@@ -51,12 +62,16 @@ const AdminUsuarios = () => {
         <select
           className="usuarios-select"
           value={nuevoUsuario.rol}
-          onChange={(e) => setNuevoUsuario({ ...nuevoUsuario, rol: e.target.value })}
+          onChange={(e) =>
+            setNuevoUsuario({ ...nuevoUsuario, rol: e.target.value })
+          }
         >
           <option value="admin">Admin</option>
           <option value="cliente">Cliente</option>
         </select>
-        <button className="btn agregar" onClick={handleAgregar}>Agregar</button>
+        <button className="btn agregar" onClick={handleAgregar}>
+          Agregar
+        </button>
       </div>
 
       <table className="usuarios-tabla">
@@ -76,8 +91,23 @@ const AdminUsuarios = () => {
                 <button
                   className="btn eliminar"
                   onClick={() => {
-                    if (window.confirm('¿Seguro que querés borrar este usuario? 😬'))
-                      eliminarUsuario(u.id)
+                    const estaVinculado = clientes.some(
+                      (c) => c.usuarioId === u.id
+                    );
+                    if (estaVinculado) {
+                      alert(
+                        "No podés eliminar este usuario porque está vinculado a un cliente 😬"
+                      );
+                      return;
+                    }
+
+                    if (
+                      window.confirm(
+                        "¿Seguro que querés borrar este usuario? 😬"
+                      )
+                    ) {
+                      eliminarUsuario(u.id);
+                    }
                   }}
                 >
                   Eliminar
@@ -88,7 +118,7 @@ const AdminUsuarios = () => {
         </tbody>
       </table>
     </div>
-  )
-}
+  );
+};
 
-export default AdminUsuarios
+export default AdminUsuarios;

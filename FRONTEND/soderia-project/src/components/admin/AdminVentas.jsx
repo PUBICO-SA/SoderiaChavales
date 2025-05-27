@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { ENDPOINT_VENTAS } from '../../routes/routes'
+import './adminstyles/AdminVentas.css'
 
 const AdminVentas = () => {
   const [ventas, setVentas] = useState([])
@@ -12,10 +13,10 @@ const AdminVentas = () => {
   }, [])
 
   return (
-    <div>
-      <h2>Ventas</h2>
+    <div className="ventas-container">
+      <h2 className="ventas-titulo">Ventas</h2>
 
-      <table border="1" cellPadding="8" cellSpacing="0" style={{ marginTop: '20px', width: '100%' }}>
+      <table className="ventas-tabla">
         <thead>
           <tr>
             <th>Cliente</th>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ENDPOINT_CLIENTES } from '../../routes/routes';
+import './adminstyles/AdminClientes.css';
 
 const AdminClientes = () => {
   const [clientes, setClientes] = useState([]);
@@ -31,27 +32,32 @@ const AdminClientes = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Clientes</h2>
+    <div className="clientes-container">
+      <h2 className="clientes-titulo">Clientes</h2>
 
-      <input
-        placeholder="Nombre"
-        value={nuevoCliente.nombre}
-        onChange={e => setNuevoCliente({ ...nuevoCliente, nombre: e.target.value })}
-      />
-      <input
-        placeholder="Teléfono"
-        value={nuevoCliente.telefono}
-        onChange={e => setNuevoCliente({ ...nuevoCliente, telefono: e.target.value })}
-      />
-      <input
-        placeholder="Dirección"
-        value={nuevoCliente.direccion}
-        onChange={e => setNuevoCliente({ ...nuevoCliente, direccion: e.target.value })}
-      />
-      <button onClick={agregarCliente}>Agregar</button>
+      <div className="formulario-clientes">
+        <input
+          className="input-cliente"
+          placeholder="Nombre"
+          value={nuevoCliente.nombre}
+          onChange={e => setNuevoCliente({ ...nuevoCliente, nombre: e.target.value })}
+        />
+        <input
+          className="input-cliente"
+          placeholder="Teléfono"
+          value={nuevoCliente.telefono}
+          onChange={e => setNuevoCliente({ ...nuevoCliente, telefono: e.target.value })}
+        />
+        <input
+          className="input-cliente"
+          placeholder="Dirección"
+          value={nuevoCliente.direccion}
+          onChange={e => setNuevoCliente({ ...nuevoCliente, direccion: e.target.value })}
+        />
+        <button className="btn-agregar" onClick={agregarCliente}>Agregar</button>
+      </div>
 
-      <table border="1" cellPadding="8" cellSpacing="0" style={{ marginTop: '20px', width: '100%' }}>
+      <table className="tabla-clientes">
         <thead>
           <tr>
             <th>Nombre</th>
@@ -67,7 +73,7 @@ const AdminClientes = () => {
               <td>{cli.telefono}</td>
               <td>{cli.direccion}</td>
               <td>
-                <button onClick={() => eliminarCliente(cli.id)}>Eliminar</button>
+                <button className="btn-eliminar" onClick={() => eliminarCliente(cli.id)}>Eliminar</button>
               </td>
             </tr>
           ))}

@@ -1,0 +1,74 @@
+.usuarios-container {
+    background-color: rgba(50, 50, 50, 0.9);
+    padding: 30px;
+    border-radius: 14px;
+    max-width: 900px;
+    margin: 0 auto;
+    color: white;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  }
+  
+  .usuarios-titulo {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .usuarios-formulario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+  
+  .usuarios-input,
+  .usuarios-select {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    min-width: 180px;
+  }
+  
+  .btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    filter: brightness(1.1);
+  }
+  
+  .agregar {
+    background-color: #2ecc71;
+    color: white;
+  }
+  
+  .eliminar {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .usuarios-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .usuarios-tabla th,
+  .usuarios-tabla td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .usuarios-tabla th {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  

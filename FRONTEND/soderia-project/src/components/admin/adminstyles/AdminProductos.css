@@ -1,0 +1,98 @@
+.productos-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 14px;
+    max-width: 900px;
+    width: 100%;
+    color: white;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  }
+  
+  .productos-titulo {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .productos-formulario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+  
+  .productos-input {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .productos-botones {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .agregar {
+    background-color: #27ae60;
+    color: white;
+  }
+  
+  .guardar {
+    background-color: #2980b9;
+    color: white;
+  }
+  
+  .cancelar {
+    background-color: #c0392b;
+    color: white;
+  }
+  
+  .editar {
+    background-color: #f39c12;
+    color: white;
+    margin-right: 5px;
+  }
+  
+  .eliminar {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .btn:hover {
+    filter: brightness(1.1);
+  }
+  
+  .productos-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .productos-tabla th,
+  .productos-tabla td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .productos-tabla th {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+  }
+  

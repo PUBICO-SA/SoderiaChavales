@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import {ENDPOINT_PRODUCTOS} from '../../routes/routes' 
+import { ENDPOINT_PRODUCTOS } from '../../routes/routes'
 
 const ProductosClientes = () => {
   const [productos, setProductos] = useState([])
@@ -18,16 +18,27 @@ const ProductosClientes = () => {
   return (
     <div style={{ padding: '1rem' }}>
       <h2>Productos disponibles</h2>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
-        {productos.map(prod => (
-          <li key={prod.id}>
-            <h3>{prod.nombre}</h3>
-            <p><strong>Precio:</strong> ${prod.precio}</p>
-            <p><em>{prod.descripcion}</em></p>
-            <p><strong>Stock:</strong> {prod.stock}</p>
-          </li>
-        ))}
-      </ul>
+
+      <table border="1" cellPadding="8" cellSpacing="0" style={{ width: '100%', marginTop: '20px' }}>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          {productos.map(prod => (
+            <tr key={prod.id}>
+              <td>{prod.nombre}</td>
+              <td><em>{prod.descripcion}</em></td>
+              <td>${prod.precio}</td>
+              <td>{prod.stock}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   )
 }

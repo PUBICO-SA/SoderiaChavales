@@ -1,6 +1,7 @@
 import React from 'react'
 import useCrud from '../../hooks/useCrud'
 import { ENDPOINT_USERS } from '../../routes/routes'
+import './adminstyles/AdminUsuarios.css'
 
 const initialUsuario = {
   username: '',
@@ -25,11 +26,12 @@ const AdminUsuarios = () => {
   }
 
   return (
-    <div>
-      <h2>Usuarios</h2>
+    <div className="usuarios-container">
+      <h2 className="usuarios-titulo">Usuarios</h2>
 
-      <div>
+      <div className="usuarios-formulario">
         <input
+          className="usuarios-input"
           type="text"
           placeholder="Username"
           value={nuevoUsuario.username}
@@ -38,6 +40,7 @@ const AdminUsuarios = () => {
           }
         />
         <input
+          className="usuarios-input"
           type="password"
           placeholder="Password"
           value={nuevoUsuario.password}
@@ -46,31 +49,44 @@ const AdminUsuarios = () => {
           }
         />
         <select
+          className="usuarios-select"
           value={nuevoUsuario.rol}
           onChange={(e) => setNuevoUsuario({ ...nuevoUsuario, rol: e.target.value })}
         >
           <option value="admin">Admin</option>
           <option value="cliente">Cliente</option>
         </select>
-        <button onClick={handleAgregar}>Agregar</button>
+        <button className="btn agregar" onClick={handleAgregar}>Agregar</button>
       </div>
 
-      <ul>
-        {usuarios.map((u) => (
-          <li key={u.id}>
-            {u.username} ({u.rol})
-            <button
-              onClick={() => {
-                if (window.confirm('¿Seguro que querés borrar este usuario? 😬'))
-                  eliminarUsuario(u.id)
-              }}
-            
-            >
-              Eliminar
-            </button>
-          </li>
-        ))}
-      </ul>
+      <table className="usuarios-tabla">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {usuarios.map((u) => (
+            <tr key={u.id}>
+              <td>{u.username}</td>
+              <td>{u.rol}</td>
+              <td>
+                <button
+                  className="btn eliminar"
+                  onClick={() => {
+                    if (window.confirm('¿Seguro que querés borrar este usuario? 😬'))
+                      eliminarUsuario(u.id)
+                  }}
+                >
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   )
 }

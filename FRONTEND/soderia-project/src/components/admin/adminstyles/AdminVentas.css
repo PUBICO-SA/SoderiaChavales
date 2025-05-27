@@ -1,0 +1,46 @@
+.ventas-container {
+    background-color: rgba(40, 40, 40, 0.95);
+    padding: 30px;
+    border-radius: 14px;
+    max-width: 1000px;
+    margin: 0 auto;
+    color: white;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  }
+  
+  .ventas-titulo {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .ventas-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .ventas-tabla th,
+  .ventas-tabla td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .ventas-tabla th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .ventas-tabla tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .ventas-tabla tbody tr:hover {
+    background-color: #e0f7fa;
+  }
+  
